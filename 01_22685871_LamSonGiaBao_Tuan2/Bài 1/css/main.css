@@ -1,0 +1,165 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+}
+
+#title{
+    font-style: italic;
+    text-transform: uppercase;
+    color: red;
+    text-shadow: 10px 10px 0 rgba(255, 0, 0, 0.1);
+    font-size: 50px;
+
+}
+
+.nav-content > *{
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    padding: 15px;
+}
+
+.nav-content > a,
+.nav-content > div:first-child{
+    border-right: 1px solid black;
+}
+
+.nav-content{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    display: flex;
+    font-size: larger;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    background-color: #ec9696;
+}
+
+body > div > div > img{
+    height: 20px;
+    width: auto;
+}
+
+.title-h1{
+    background-color: #eb9696;
+    color: #a52a2a;
+    display: flex;
+    justify-content: center;
+
+    text-transform: uppercase;
+    letter-spacing: 20px;
+}
+
+li a{
+    color: red;
+}
+
+body > a{
+    color: red;
+    font-weight: 1000;
+}
+
+#Starters + ul li:nth-child(3){
+    text-transform: uppercase;
+    color: #afb50c;
+    font-weight: 1000;
+}
+
+#content{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+
+#div-left{
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    align-self: start;
+}
+
+#div-left div{
+    background-color: #ec9696;
+    min-height: 40px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    font-weight: 800;
+    color: white;
+    font-size: 20px;
+    padding-left: 20px;
+}
+
+.div-left-images{
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 10px 20px 50px #ec9696;
+}
+
+#div-center{
+    padding: 0 50px;
+    flex: 8;
+}
+
+#div-center > a{
+    color: red;
+    font-weight: 800;
+    font-size: 20px;
+}
+
+#div-center form{
+    display: flex;
+    flex-direction: column;
+}
+
+#div-center form div{
+    display: flex;
+    width: 100%;
+}
+
+.all-input{
+    width: 100%;
+    margin: 10px;
+    min-height: 50px;
+}
+
+.all-input > span{
+    display: flex;
+    align-items: center;
+}
+
+.all-button{
+    height: 40px;
+    width: 80px;
+    margin: 10px;
+}
+
+
+#div-right{
+    flex: 3;
+    background-color: black;
+    padding: 0 40px;
+}
+
+#div-right > div > img{
+    width: 100%;
+    height: auto;
+}
+
+#div-right > h1, h2, p{
+    color: white;
+}
+
+#div-right p{
+    text-align: justify;
+    font-size: 20px;
+}
+
+.read-more{
+    color: #ec9696;
+}
