@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0 auto;
+        }
+        .k1{
+            width: 1000px;
+            height: 800px;
+            background-image: linear-gradient(rgb(73, 144, 231),rgb(12, 79, 146)) ;
+            border: 1px solid blue;
+            background-color: rgb(0, 170, 255);
+        }
+        nav{
+            width: 100%;
+            height: 100px;
+            border-bottom:  3px dotted white;
+        }
+        a{
+            color: wheat;
+            text-decoration: none;
+            font-size: 20px;
+        }
+        nav ul li{
+            display: inline;
+            padding-left: 20px;
+            line-height: 100px;
+        }
+        section{
+            float: left;
+            width: 50%;
+            height: 590px;
+            color: white;
+            padding: 10px;
+            
+        }
+        h1{
+            color: wheat;
+            position: absolute;
+            top: 20px;
+            right: 240px;
+            text-shadow: 6px 6px 6px rgb(76,230,171);
+            font-size: 40px;
+        }
+        aside{
+            float: left;
+            width: 50%;
+            height: 550px;
+            text-align: center;
+       
+        }
+        footer{
+            clear: both;
+            width: 100%;
+            height: 106px;
+            border-top:  3px dotted white;
+        }
+        h2,p{
+            margin-top: 10px;
+            margin-bottom: 10px;
+
+        }
+       input,select{
+        border-radius: 5px;
+        width: 250px;
+        height: 30px;
+        margin-bottom: 10px;
+       }
+       button{
+        height: 40px;
+        width: 60px;
+     border-radius: 5px;
+     margin-top: 15px;
+    }
+    .hi1{
+        width: 450px;
+        margin-top: 20px;
+    }
+            
+        h3{
+            color: blue;
+            text-shadow: 3px 3px 2px blue;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-size: 30px;
+        }
+        h4{
+            color: blue;
+            font-size: 20px;
+        }
+        address{
+            text-align: center;
+            color: white;
+            line-height: 30px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="k1">
+        <nav>
+            <ul>
+                <li><a href=".">Home</a></li>
+                <li><a href=".">Products</a></li>
+                <li><a href=".">Services</a></li>
+                <li><a href=".">About</a></li>
+                <li><a href=".">Contact</a></li>
+            </ul>
+            <h1>Sky work</h1>
+        </nav>
+        <section>
+            <h2>Registration information</h2>
+           <p>Start your travel planning right now with our on-line tour registration form.Just tell us a little about yourself and your group and one of our travel experts will contact you to create the perfect tour package custom built for your group's needs</p>
+        <table>
+            <tr>
+                <td>title</td>
+                <td><select name="se" id="se">
+                    <option value="Mr">Mr</option>
+                    <option value="Mr">Mrs</option>
+                    <option value="Mr">Mr</option>
+                    <option value="Mr">Mrs</option>
+                </select><br></td>
+            </tr>
+            <tr>
+                <td>Full name</td>
+                <td><input type="text" name="txt" id="txt"><br></td>
+            </tr>
+            <tr>
+                <td>Mailing Address</td>
+                <td><input type="text" name="txt" id="txt"><br></td>
+            </tr>
+            <tr>
+                <td>City</td>
+                <td><input type="text" name="txt" id="txt"><br></td>
+            </tr>
+            <tr>
+                <td>country</td>
+                <td><input type="text" name="txt" id="txt"><br></td>
+            </tr>
+            <tr>
+                <td>Specific questions or requests about your tour</td>
+                <td> <textarea name="" id="" cols="30" rows="5"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><button type="submit" >submit</button> <button type="reset" > reset</button></td>
+                
+            </tr>
+        </table>
+               <p></p>
+        
+            </section>
+        <aside>
+            <img src="images/hinht3.png" alt="">
+            <h3>You've arrived</h3>
+            <h4>Journeys as great as  the destinations.</h4>
+        </aside>
+        <footer>
+            <address> 2016 Sky World Tours. All rights reserved. <br>
+           contact information:Student Name | Student ID|testing date :16 sept 2016</address>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Image and Size</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h2>Change Image and Size</h2>
+
+    <img id="myImage" src="images/photo1.jpg" alt="Default Image">
+    
+    <button onclick="changeImage()">Change Image</button>
+    <button onclick="changeSize()">Change Size</button>
+
+    <script>
+        var currentImage = 1;
+
+        function changeImage() {
+            var imageElement = document.getElementById('myImage');
+            if (currentImage === 1) {
+                imageElement.src = 'new-image.jpg';
+                currentImage = 2;
+            } else {
+                imageElement.src = 'default-image.jpg';
+                currentImage = 1;
+            }
+        }
+
+        function changeSize() {
+            var imageElement = document.getElementById('myImage');
+            if (imageElement.style.width === '50%') {
+                imageElement.style.width = '100%';
+            } else {
+                imageElement.style.width = '50%';
+            }
+        }
+    </script>
+</body>
+</html>
