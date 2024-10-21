@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQUEEN FLOWER STORE</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+        
+        .wrapper {
+            height: 600px;
+            width: 960px;
+            background-color: antiquewhite;
+            margin: 0 auto;
+        }
+        
+        header {
+            height: 150px;
+            width: 100%;
+            background-color: #294e79;
+            position: relative;
+        }
+        
+        header img {
+            top: 20px;
+            left: 10px;
+            position: absolute;
+        }
+        
+        header h2 {
+            top: 20px;
+            left: 120px;
+            position: absolute;
+            color: white;
+        }
+        
+        header h4 {
+            top: 50px;
+            left: 120px;
+            position: absolute;
+            color: white;
+        }
+        
+        header #frm {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        
+        header #frm #txts {
+            border: 1px solid gray;
+            padding: 2px;
+        }
+        
+        header #frm #btnS {
+            border: 1px solid gray;
+            padding: 2px;
+            border-radius: 50%;
+            background-color: cadetblue;
+        }
+        
+        nav {
+            position: absolute;
+            bottom: 3px;
+            right: 20px;
+        }
+        
+        .menu {
+            list-style-type: none;
+        }
+        
+        .menu li {
+            display: inline-block;
+            background-color: #576c85;
+            height: 50px;
+            line-height: 50px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        
+        .menu li:hover {
+            background-color: #e673c3;
+        }
+        
+        .menu li a {
+            color: white;
+            font-weight: bolder;
+            text-decoration: none;
+        }
+        
+        .menu li ul.sub-menu {
+            display: none;
+            background-color: #576c85;
+            position: absolute;
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+        }
+        
+        .menu li:hover ul.sub-menu {
+            display: block;
+            left: 0px;
+            top: 51px;
+        }
+        
+        .menu li ul.sub-menu li {
+            width: 115px;
+        }
+        
+        .content {
+            padding: 20px;
+        }
+        
+        .product {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        
+        .product img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .product-details {
+            max-width: 600px;
+        }
+        
+        .product-details h3 {
+            margin-bottom: 10px;
+        }
+        
+        .product-details p {
+            margin-bottom: 20px;
+        }
+        
+        .product-details button {
+            padding: 10px 20px;
+            background-color: #294e79;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .product-details button:hover {
+            background-color: #e673c3;
+        }
+        
+        .home-content {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .home-content h1 {
+            margin-bottom: 20px;
+        }
+        
+        .home-content p {
+            margin-bottom: 20px;
+        }
+        
+        .home-content img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <img src="https://static.vecteezy.com/system/resources/previews/027/241/884/non_2x/chibi-elderly-old-grandma-with-bouquet-of-red-rose-flower-with-modern-attire-standing-digital-clipart-ai-generated-png.png" alt="Flower Image" height="100" width="80">
+            <h2>MCQUEEN FLOWER STORE</h2>
+            <h4>...to get your daily dose of luxury roses!</h4>
+            <form action="" method="post" id="frm">
+                <input type="text" name="txts" id="txts" placeholder="Nhap" required>
+                <button type="submit" id="btnS">GO</button>
+            </form>
+            <nav>
+                <ul class="menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#">Promotion</a></li>
+                    <li><a href="#">Gift Baskets</a></li>
+                    <li><a href="#">Flowers Baskets</a>
+                        <ul class="sub-menu">
+                            <li><a href="#">LiLy Flowers</a></li>
+                            <li><a href="#">Lavender</a></li>
+                            <li><a href="#">Daisy Flowers</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="content">
+            <div id="home" class="home-content">
+                <h1>Welcome to MCQUEEN FLOWER STORE</h1>
+                <p>Discover the beauty and elegance of our luxury flower arrangements. Perfect for any occasion, our flowers are handpicked and arranged with care to ensure the highest quality.</p>
+                <img src="https://images.ctfassets.net/ph4gbgsekqey/4NRYsRI3Vj7TFEojal9yMd/c996aa6e013a3d6dca2af4057a4d6a99/IMG_5172.jpg?w=1500&h=843&fm=webp" alt="Beautiful Flowers">
+            </div>
+            <div class="product">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoYin6TgSL-vP29tOP9UEvE5JPC_ofcLYPOw&s" alt="Product Image">
+                <section class="product-details">
+                    <h3>Luxury Rose Bouquet</h3>
+                    <p>Our luxury rose bouquet is perfect for any occasion. Each bouquet is carefully arranged with the freshest roses to ensure maximum beauty and longevity.</p>
+                    <button>Add to Cart</button>
+                </section>
+            </div>
+            <div class="product">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQdCionwhuIqTtv64I3PriB59NSm7Qay9cOA&s" alt="Product Image">
+                <section class="product-details">
+                    <h3>Lavender Bouquet</h3>
+                    <p>Lavender flowers represent purity, silence, devotion, serenity, grace, and calmness. Purple is the color of royalty and speaks of elegance, refinement, and luxury, too.</p>
+                    <button>Add to Cart</button>
+                </section>
+            </div>
+        </div>
+        <footer></footer>
+    </div>
+</body>
+
+</html>
