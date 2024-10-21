@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magazine Template</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .wrapper {
+            max-width: 1200px;
+            margin: 0 auto; 
+            background:  linear-gradient(to right, #f0a8a8, #b0c4e3);
+        } 
+        nav {
+            background-color: #4A4A4A;
+            padding: 10px;
+            color: white;
+            display: flex;
+            justify-content: space-between; /* Canh đều các mục */
+            align-items: center;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            padding: 0;
+            margin: 0;
+            justify-content: center; /* Canh giữa các mục */
+            flex: 1;
+        }
+        nav ul li {
+            margin: 0 20px; /* Khoảng cách giữa các mục */
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        nav button {
+            background-color: #00A0E3;
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            cursor: pointer;
+            border-radius: 25px;
+        }
+        nav button:hover {
+            background-color: #007bb5;
+        }
+        /* Banner Section */
+        .banner {
+            padding: 40px;
+            display: flex; 
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+        }
+        .banner img {
+            max-width: 45%; 
+            height: auto;
+        }
+        .banner-content {
+            max-width: 50%; 
+            display: flex; 
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            padding-left: 0px;
+            margin-right: 50px;
+        }
+        .banner-content h1 {
+            font-size: 3rem;
+            margin-bottom: 50px;
+        }
+        .banner-content p {
+            font-size: 1.5rem;
+            margin: 10px 0;
+            text-align: left;
+            margin-bottom: 50px;
+        }
+        .banner-content button {
+            
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border: 2px solid black;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+        .banner-content button:hover {
+            background-color: #f0f0f0;
+        }
+        .october-highlights {
+            background-color: #878787;
+            color: white;
+            padding-top: 200px;
+            text-align: center;
+        }
+        .october-highlights h2 {
+            font-size: 3rem;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+    <nav>
+        <ul>
+            <li><a href="#">MAGAZINE TEMPLATE</a></li>
+            <li><a href="#">BLOCK DEMOS 1</a></li>
+            <li><a href="#">BLOCK DEMOS 2</a></li>
+            <li><a href="#">SITE TEMPLATES 1</a></li>
+            <li><a href="#">SITE TEMPLATES 2</a></li>
+        </ul>
+        <!-- Nút Download Now ở góc phải -->
+        <button>DOWNLOAD NOW!</button>
+    </nav>
+
+    <!-- Autumn Sale Section -->
+    <section class="banner">
+        <img src="../bai1/img/magazin.jpg" alt="Magazines">
+    
+        <div class="banner-content">
+            <h1>AUTUMN SALE</h1>
+            <p>Purchase summer issues! 50% OFF</p>
+            <button>ORDER NOW</button>
+        </div>
+    </section>
+
+    <!-- October Highlights Section -->
+    <section class="october-highlights">
+        <h2>OCTOBER HIGHLIGHTS</h2>
+    </section>
+</div>
+</body>
+</html>

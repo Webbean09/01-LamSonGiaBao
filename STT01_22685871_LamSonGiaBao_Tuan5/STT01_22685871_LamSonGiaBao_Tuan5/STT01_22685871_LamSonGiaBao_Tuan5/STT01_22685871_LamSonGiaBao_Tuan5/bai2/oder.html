@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Web bán hàng Online</title>
+</head>
+<body>
+    <div class="modal" id="orderModal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2>Order</h2>
+            <div class="input-group">
+                <label for="telephone">Telephone:</label>
+                <input type="tel" id="telephone" placeholder="Enter your telephone">
+                <div class="error" id="telephoneError">Chưa nhập số điện thoại</div>
+            </div>
+            <div class="input-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="Enter your email">
+                <div class="error" id="emailError">Chưa nhập email</div>
+            </div>
+            <div class="input-group">
+                <input type="checkbox" id="checkout">
+                <label for="checkout">Check me out</label>
+                <div class="error" id="checkoutError">Bạn cần phải chọn ô này</div>
+            </div>
+            <div class="button-group">
+                <button id="submitBtn">Submit</button>
+                <button id="exitBtn">Exit</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const orderModal = document.getElementById("orderModal");
+            const closeModal = document.getElementById("closeModal");
+            const submitBtn = document.getElementById("submitBtn");
+            const exitBtn = document.getElementById("exitBtn");
+            orderModal.style.display = "block";
+            document.body.classList.add("modal-open");
+            closeModal.onclick = function() {
+                closeModalAndGoHome();
+            }
+            submitBtn.onclick = function() {
+                const telephone = document.getElementById("telephone").value.trim();
+                const email = document.getElementById("email").value.trim();
+                const checkout = document.getElementById("checkout").checked;
+                const telephoneError = document.getElementById("telephoneError");
+                const emailError = document.getElementById("emailError");
+                const checkoutError = document.getElementById("checkoutError");
+                telephoneError.style.display = 'none';
+                emailError.style.display = 'none';
+                checkoutError.style.display = 'none';
+                let valid = true;
+                if (!telephone) {
+                    telephoneError.style.display = 'block';
+                    valid = false;
+                } else if (!/^0\d{9}$/.test(telephone)) {
+                    telephoneError.textContent = 'Số điện thoại phải bắt đầu bằng 0 và có đủ 10 ký tự';
+                    telephoneError.style.display = 'block';
+                    valid = false;
+                }
+                if (!email) {
+                    emailError.style.display = 'block';
+                    valid = false;
+                }else if (!/@gmail\.com$/.test(email)) {
+                    emailError.textContent = 'Email phải có đuôi @gmail.com';
+                    emailError.style.display = 'block';
+                    valid = false;
+                }
+                if (!checkout) {
+                    checkoutError.style.display = 'block';
+                    valid = false;
+                }
+                if (valid) {
+                    alert(`Order xong!\nTelephone: ${telephone}\nEmail: ${email}`);
+                    closeModalAndGoHome(); 
+                }
+            }
+            exitBtn.onclick = function() {
+                closeModalAndGoHome();
+            }
+            window.onclick = function(event) {
+                if (event.target === orderModal) {
+                    closeModalAndGoHome();
+                }
+            }
+            function closeModalAndGoHome() {
+                orderModal.style.display = "none";
+                document.body.classList.remove("modal-open");
+                window.location.href = "home.html"; //
+            }
+        });
+    </script>
+</body>
+</html>

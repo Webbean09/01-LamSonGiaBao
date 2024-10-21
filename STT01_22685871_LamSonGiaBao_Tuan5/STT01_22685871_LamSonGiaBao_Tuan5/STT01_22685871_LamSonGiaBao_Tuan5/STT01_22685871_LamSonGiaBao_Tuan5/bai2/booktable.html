@@ -1,0 +1,134 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Web bán hàng Online</title>
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </head>
+    <header>
+        <div id="navbar-container"></div>
+        <div class="container">
+            <h1 class="title">Book a Table</h1>
+            <div class="form-container">
+                <div class="left-side">
+                    <div class="input-group">
+                        <label for="name"></label>
+                        <input type="text" id="name" placeholder="Your Name" required>
+                        <div class="error" id="nameError">làm ơn nhập tên</div>
+                    </div>
+                    <div class="input-group">
+                        <label for="phone"></label>
+                        <input type="text" id="phone" placeholder="Phone Number" required>
+                        <div class="error" id="phoneError">Làm ơn nhập số điện thoại</div>
+                    </div>
+                    <div class="input-group">
+                        <label for="phone"></label>
+                        <input type="text" id="email" placeholder="your Email" required>
+                        <div class="error" id="emailError">Làm ơn nhập email</div>
+                    </div>
+                    <div class="input-group">
+                        <label for="people"></label>
+                        <select id="people" required>
+                            <option selected disabled value="">How many persons?</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3-4</option>
+                            <option value="4">5-8</option>
+                            <option value="5">8^</option>
+                        </select>
+                        <div class="error" id="peopleError">Làm ơn chọn số người</div>
+                    </div>
+                    <div class="input-group">
+                        <label for="date"></label>
+                        <input type="date" id="date">
+                        <div class="error" id="dateError">Làm ơn chọn ngày</div>
+                    </div>
+                </div>
+                <div class="right-side">
+                    <div class="input-group">
+                        <label for="address"></label>
+                        <div class="image-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1308.0388376734245!2d106.68039351960982!3d10.758539083321505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f8438b1e4d9%3A0x5ccf45ed9954be68!2zQ8ahbSBU4bqlbSBTw6AgQsOsIENoxrDhu59uZyAtIFRy4bqnbiBCw6xuaCBUcuG7jW5n!5e0!3m2!1svi!2s!4v1726666466370!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="book-button" id="bookNowBtn">Book Now</button>
+        </div>
+        </div>
+        
+    </header>
+    <script>
+        function loadNavbar() {
+            fetch('navbar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-container').innerHTML = data;
+                })
+                .catch(error => console.error('Error loading the navbar:', error));
+        }
+
+        document.addEventListener('DOMContentLoaded', loadNavbar);
+        document.getElementById("bookNowBtn").onclick = function() {
+            const errors = document.querySelectorAll('.error');
+            errors.forEach(error => error.style.display = 'none');
+
+            // Lấy giá trị từ các ô nhập liệu
+            const name = document.getElementById("name").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const people = document.getElementById("people").value;
+            const date = document.getElementById("date").value;
+
+            let hasError = false;
+
+            // Kiểm tra từng ô nhập liệu
+            if (name === "") {
+                document.getElementById("nameError").style.display = 'block';
+                hasError = true;
+            }
+            if (phone === "") {
+                document.getElementById("phoneError").style.display = 'block';
+                hasError = true;
+            }
+            else if (!/^0\d{9}$/.test(phone)) {
+                document.getElementById("phoneError").textContent = 'Số điện thoại phải bắt đầu bằng 0 và có đủ 10 ký tự';
+                document.getElementById("phoneError").style.display = 'block';
+                hasError = true;
+            }
+            if (email === "") {
+                document.getElementById("emailError").style.display = 'block';
+                hasError = true;
+            }
+            else if (!/^[\w-]+(\.[\w-]+)*@gmail\.com$/.test(email)) {
+                document.getElementById("emailError").textContent = 'Email phải có đuôi @gmail.com';
+                document.getElementById("emailError").style.display = 'block';
+                hasError = true;
+            }
+            if (people === "" || people === "0") {
+                document.getElementById("peopleError").style.display = 'block';
+                hasError = true;
+            }
+            if (date === "") {
+                document.getElementById("dateError").style.display = 'block';
+                hasError = true;
+            }
+            if (!hasError) {
+                alert("Booking successful!");
+                window.location.href = 'home.html';
+            }
+            else {
+                const today = new Date().toISOString().split('T')[0];
+                if (date > today) {
+                    document.getElementById("dateError").textContent = 'Ngày không được đặt sau ngày hôm nay';
+                    document.getElementById("dateError").style.display = 'block';
+                    hasError = true;
+                }
+            }
+        }
+    </script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    </html>
