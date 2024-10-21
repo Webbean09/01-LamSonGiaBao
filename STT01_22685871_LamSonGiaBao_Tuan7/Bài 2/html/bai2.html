@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Cau hinh -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            alert("Chao cac ban");
+        })
+    </script>
+</head>
+
+<style>
+    .container {
+        width: 100%;
+        height: 100vh;
+    }
+    
+    .nav {
+        width: 100%;
+        height: 25%;
+    }
+    
+    .nav>img {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .main {
+        width: 100%;
+        height: 75%;
+        display: flex;
+    }
+    
+    .left {
+        width: 30%;
+    }
+    
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        background-color: rgb(127, 129, 131);
+    }
+    
+    .left>table {
+        color: blue;
+        text-align: center;
+        position: relative;
+    }
+    
+    #background-white {
+        background-color: aliceblue;
+    }
+    
+    th {
+        border: 3px solid #ddd;
+        padding: 8px;
+    }
+    
+    .center {
+        width: 40%;
+        height: auto;
+    }
+    
+    .center:hover>table {
+        color: black;
+    }
+    
+    .right {
+        width: 30%;
+    }
+    
+    td {
+        background-color: aliceblue;
+        border: 3px solid #ddd;
+        width: 50px;
+        height: 30px;
+    }
+    
+    #bang-bao-gia {
+        width: 100%;
+        height: 100px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="nav">
+            <img src="../img/background.png" alt="">
+        </div>
+        <div class="main">
+            <div class="left">
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="2"> Bảng Tin Thị Trường</th>
+                        </tr>
+                        <tr>
+                            <th colspan="2">Vàng</th>
+                        </tr>
+                        <tr>
+                            <th id="background-white">Mua Vào</th>
+                            <th id="background-white">Bán Ra</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="vang-mua-vao"></td>
+                            <td id="vang-ban-ra"></td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">USA</th>
+                        </tr>
+                        <tr>
+                            <th id="background-white">Mua Vào</th>
+                            <th id="background-white">Bán Ra</th>
+                        </tr>
+                        <tr>
+                            <td id="usa-mua-vao"></td>
+                            <td id="usa-ban-ra"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="center">
+                <table>
+                    <tr>
+                        <th colspan="2"> Cập nhật giá cả thị trường</th>
+                    </tr>
+                    <tr>
+                        <th>Mua Vào</th>
+                        <th><input type="text" name="" id="muavao"></th>
+                    </tr>
+                    <tr>
+                        <th>Bán Ra</th>
+                        <th><input type="text" name="" id="banra"></th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th>
+                            <input type="radio" name="tiente" id="Vang">Vàng
+                            <input type="radio" name="tiente" id="USA">USA
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>Loai Xe</th>
+                        <th>
+                            <label for="lbLoaiXe" onchange="findXe()">
+                                <select name="LoaiXe" id="LoaiXe" onchange="findXe()">
+                                    <option value="Toyota">Toyota</option>
+                                    <option value="KIA">KIA</option>
+                                    <option value="Ford">Ford</option>
+                                    <option value="Civic">Civic</option>
+                                    <option value="Ferrari">Ferrari</option>
+                                    <option value="Mercedes">Mercedes</option>
+                                </select>
+                                
+                            </label>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th>
+                            <button onclick="updateMarket()">Update</button>
+                            <button id="stateButton" disabled>State</button>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+            <div class="right">
+                <table>
+                    <tr>
+                        <th>Bảng Báo Giá</th>
+                    </tr>
+                    <tr>
+                        <td id="bang-bao-gia">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th id="hinh-minh-hoa">
+
+                        </th>
+                    </tr>
+                    <tr>
+                        <td id="Gia">Gia:</td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        window.addEventListener('load', function() {
+            var muavaoInput = document.getElementById('muavao');
+            var stateButton = document.getElementById('stateButton');
+            muavaoInput.focus();
+            stateButton.disabled = true;
+            muavaoInput.addEventListener('blur', function() {
+                if (!isNaN(parseFloat(muavaoInput.value)) && isFinite(muavaoInput.value) && muavaoInput.value.trim() !== '') {
+                    stateButton.disabled = false;
+                } else {
+                    stateButton.disabled = true;
+                }
+            });
+        });
+
+        function updateMarket() {
+            var muavaoInput = document.getElementById('muavao').value;
+            var banraInput = document.getElementById('banra').value;
+            var radioVang = document.getElementById('Vang');
+            var vangMuaVao = document.getElementById('vang-mua-vao');
+            var vangBanRa = document.getElementById('vang-ban-ra');
+            var usaMuaVao = document.getElementById('usa-mua-vao');
+            var usaBanRa = document.getElementById('usa-ban-ra');
+
+            if (radioVang.checked) {
+                vangMuaVao.innerText = muavaoInput;
+                vangBanRa.innerText = banraInput;
+            } else {
+                usaMuaVao.innerText = muavaoInput;
+                usaBanRa.innerText = banraInput;
+            }
+        }
+
+        function findXe() {
+            var loaixe = document.getElementById('LoaiXe').value;
+            var bangbaogia = document.getElementById('bang-bao-gia');
+            var hinhminhhoa = document.getElementById('hinh-minh-hoa');
+            var gia = document.getElementById('Gia');
+            if (loaixe === "Toyota") {
+                bangbaogia.innerHTML = "1";
+                hinhminhhoa.innerHTML = '<img src="../img/toyota.jpg" alt="">'
+                gia.innerHTML = "Gia : 10000"
+            } else if (loaixe === "KIA") {
+                bangbaogia.innerHTML = "2";
+                hinhminhhoa.innerHTML = '<img src="../img/Kia.jpg" alt="">'
+                gia.innerHTML = "Gia : 12000"
+            } else if (loaixe === "Ford") {
+                bangbaogia.innerHTML = "3";
+                hinhminhhoa.innerHTML = '<img src="../img/ford.jpg" alt="">'
+                gia.innerHTML = "Gia : 13000"
+            } else if (loaixe === "Civic") {
+                bangbaogia.innerHTML = "4";
+                hinhminhhoa.innerHTML = '<img src="../img/civic.jpg" alt="">'
+                gia.innerHTML = "Gia : 14000"
+            } else if (loaixe === "Ferrari") {
+                bangbaogia.innerHTML = "5";
+                hinhminhhoa.innerHTML = '<img src="../img/ferrari.jpg" alt="">'
+                gia.innerHTML = "Gia : 15000"
+            } else if (loaixe === "Mercedes") {
+                bangbaogia.innerHTML = "6";
+                hinhminhhoa.innerHTML = '<img src="../img/mescedes.jpg" alt="">'
+                gia.innerHTML = "Gia : 16000"
+            }
+        }
+    </script>
+</body>

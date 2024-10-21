@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Cau hinh -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            alert("Chao cac ban");
+        })
+    </script>
+</head>
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        background-color: rgba(236, 253, 234, 255);
+    }
+    
+    .container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+    
+    .tb {
+        width: 60%;
+        height: auto;
+        display: flex;
+    }
+    
+    th {
+        border: 3px solid #ddd;
+        padding: 8px;
+    }
+    
+    td {
+        background-color: aliceblue;
+        border: 3px solid #ddd;
+        width: 50px;
+        height: 30px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="tb">
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">Register Form</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ho va Ten (*)</td>
+                        <td><input type="text" name="" id="ten"> <span id="sp1"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Ten Dang Nhap (*)</td>
+                        <td><input type="text" name="" id="tenDN"> <span id="sp2"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Mat Khau (*)</td>
+                        <td><input type="text" name="" id="mk"></td>
+                    </tr>
+                    <tr>
+                        <td>Xac Nhan Mat Khau (*)</td>
+                        <td><input type="text" name="" id=""></td>
+                    </tr>
+                    <tr>
+                        <td>Ngay Sinh </td>
+                        <td><input type="date" name="" id=""></td>
+                    </tr>
+                    <tr>
+                        <td>Dien Thoai </td>
+                        <td><input type="tel" name="" id="dienthoai"> <span id="sp3"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Dia Chi </td>
+                        <td><input type="text" name="" id=""></td>
+                    </tr>
+                    <tr>
+                        <td>Email </td>
+                        <td><input type="text" name="" id="email"> <span id="sp4"></span></td>
+                    </tr>
+                    <tr>
+                        <td>So Thich </td>
+                        <td><input type="text" name="" id=""></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <button onclick="dangky()">Dang Ky</button>
+                            <button onclick="huy()">Huy</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <script>
+        function ktraTen() {
+            var ten = document.getElementById("ten").value;
+            var sp1 = document.getElementById("sp1");
+            sp1.innerHTML = "";
+
+            if (ten === "") {
+                sp1.innerHTML = " Ho va Ten không được để trống ";
+                return false;
+            }
+            return true;
+        }
+
+        function ktraTenDN() {
+            var tenDN = document.getElementById("tenDN").value;
+            var sp2 = document.getElementById("sp2");
+            sp2.innerHTML = "";
+            if (tenDN.length < 6) {
+                sp2.innerHTML = "Tên Đăng Nhập ít nhất phải có 6 ký tự ";
+                return false;
+            }
+            return true;
+        }
+
+        function ktraDienThoai() {
+            var dienthoai = document.getElementById("dienthoai").value;
+            var sp3 = document.getElementById("sp3");
+            sp3.innerHTML = "";
+            var phoneno = /^\d+$/;
+            if (!dienthoai.match(phoneno)) {
+                sp3.innerHTML = "Số điện thoại phải là số.";
+                return false;
+            }
+            return true;
+        }
+
+        function ktraEmail() {
+            var email = document.getElementById("email").value;
+            var sp4 = document.getElementById("sp4");
+            sp4.innerHTML = "";
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email.match(emailPattern)) {
+                sp4.innerHTML = "Email không hợp lệ.";
+                return false;
+            }
+            return true;
+        }
+
+        function dangky() {
+            var isValid = ktraTen() && ktraTenDN() && ktraDienThoai() && ktraEmail();
+            if (isValid) {
+                alert("Đăng ký thành công");
+            }
+        }
+
+        function huy() {
+            alert("Hủy đăng ký");
+        }
+    </script>
+
+</body>
