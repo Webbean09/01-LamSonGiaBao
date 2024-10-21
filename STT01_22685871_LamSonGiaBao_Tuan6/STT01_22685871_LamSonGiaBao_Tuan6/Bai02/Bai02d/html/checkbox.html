@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="22632501_LeThiBaoUyen_Tuan06" content="js" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/8c643fbad0.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      /* Reset CSS */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      /* Set table width to 100% */
+      table {
+        width: 100%;
+      }
+      /* Make table cells in the second column wider */
+      table td:nth-child(2) {
+        width: 70%; /* Adjust the width as needed */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form action="">
+        <table>
+          <tr>
+            <th colspan="2" class="text-uppercase">From định dạng</th>
+          </tr>
+          <tr>
+            <td>Họ và tên</td>
+            <td><input type="text" /></td>
+          </tr>
+          <tr>
+            <td>Chọn</td>
+            <td>
+              <input type="radio" name="chon" id="bg" />
+              <label for="bg">Background</label>
+              <input type="radio" name="chon" id="txt" />
+              <label for="txt">Text</label>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <button>Đổi màu</button>
+              <button>Cancel</button>
+            </td>
+          </tr>
+        </table>
+      </form>
+
+      <div class="noidung">
+        <p>
+          you can direct link the hyperlink with the file if you know the
+          address but this is limited by the browser. eg. if pdf reader is
+          installed on the client then the pdf will not be downloaded instead it
+          will be shown. A good solution would be to have a seperate page for
+          downloading files. just pass filename in querystring and in the
+          pageload event just outpit the file in response stream. This way you
+          can use url say dwnld.aspx? filename.ext
+        </p>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+th.text-uppercase {
+  text-align: center;
+  color: pink; /* Set the color to pink */
+}
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: separate;
+}
+table {
+        width: 100%; /* Make table width 100% of its container */
+      }
+
+      td {
+        padding: 8px; /* Add padding for better spacing */
+      }
+
+      /* Increase width of specific form fields */
+      .wide-field {
+        width: 80%; /* Set width to 80% of their container */
+      }
